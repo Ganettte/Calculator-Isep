@@ -1,4 +1,4 @@
-﻿# Exercice :  🧮 **Build a Simple Calculator**
+﻿# Exercice :  🧮 **Build a Simple Calculator** test
 
 ### **Objective:**
 Your task is to implement a `Calculator` class in Java that evaluates basic mathematical expressions represented as strings. The goal is to make the provided set of unit tests pass.
