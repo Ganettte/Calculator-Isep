@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
 
-        String expression = "12 + 3 * 2 - 5";
+        String expression = "12 + 3 * 2 - 5.5";
         double restulat = calculator.evaluerExrepessionMath(expression);
 
         System.out.println("Expression : " + expression);
