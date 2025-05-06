@@ -4,30 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Calculator {
-    public double evaluateMathExpression(String expression) {
+    public double evaluerExrepessionMath(String expression) {
         if (expression == null || expression.isBlank()) {
             System.out.println("Pas d'expression saisie");
             return 0;
         }
 
-        expression = enleveEspace(expression);
+        expression = enleverEspace(expression);
 
-        if (simpleNombre(expression)) {
+        if (NombreSimple(expression)) {
             return Double.parseDouble(expression);
         }
 
-        List<Double> numbers = extractionNombre(expression);
-        List<Character> operators = extractionOperateur(expression);
+        List<Double> nombres = extraireNombre(expression);
+        List<Character> operateurs = extraireOperateur(expression);
 
-        multiplication(numbers, operators);
-        return addictionSoustraction(numbers, operators);
+        calculMultiplication(nombres, operateurs);
+        return calculAdditionSoustraction(nombres, operateurs);
     }
 
-    private String enleveEspace(String expression) {
+    private String enleverEspace(String expression) {
         return expression.replaceAll("\\s+", "");
     }
 
-    private boolean simpleNombre(String expression) {
+    private boolean NombreSimple(String expression) {
         try {
             Double.parseDouble(expression);
             return true;
@@ -36,66 +36,66 @@ public class Calculator {
         }
     }
 
-    private List<Double> extractionNombre(String expression) {
-        List<Double> numbers = new ArrayList<>();
-        StringBuilder currentNumber = new StringBuilder();
+    private List<Double> extraireNombre(String expression) {
+        List<Double> nombres = new ArrayList<>();
+        StringBuilder nombreActuel = new StringBuilder();
 
-        for (char c : expression.toCharArray()) {
-            if (operateur(c)) {
-                numbers.add(Double.parseDouble(currentNumber.toString()));
-                currentNumber.setLength(0);
+        for (char caractere : expression.toCharArray()) {
+            if (operateur(caractere)) {
+                nombres.add(Double.parseDouble(nombreActuel.toString()));
+                nombreActuel.setLength(0);
             } else {
-                currentNumber.append(c);
+                nombreActuel.append(caractere);
             }
         }
 
-        numbers.add(Double.parseDouble(currentNumber.toString()));
-        return numbers;
+        nombres.add(Double.parseDouble(nombreActuel.toString()));
+        return nombres;
     }
 
-    private List<Character> extractionOperateur(String expression) {
-        List<Character> operators = new ArrayList<>();
+    private List<Character> extraireOperateur(String expression) {
+        List<Character> operateurs = new ArrayList<>();
 
-        for (char c : expression.toCharArray()) {
-            if (operateur(c)) {
-                operators.add(c);
+        for (char caractere : expression.toCharArray()) {
+            if (operateur(caractere)) {
+                operateurs.add(caractere);
             }
         }
 
-        return operators;
+        return operateurs;
     }
 
-    private boolean operateur(char c) {
-        return c == '+' || c == '-' || c == '*';
+    private boolean operateur(char caractere) {
+        return caractere == '+' || caractere == '-' || caractere == '*';
     }
 
-    private void multiplication(List<Double> numbers, List<Character> operators) {
-        for (int i = 0; i < operators.size(); ) {
-            if (operators.get(i) == '*') {
-                double result = numbers.get(i) * numbers.get(i + 1);
-                numbers.set(i, result);
-                numbers.remove(i + 1);
-                operators.remove(i);
+    private void calculMultiplication(List<Double> nombres, List<Character> operateurs) {
+        for (int i = 0; i < operateurs.size(); ) {
+            if (operateurs.get(i) == '*') {
+                double result = nombres.get(i) * nombres.get(i + 1);
+                nombres.set(i, result);
+                nombres.remove(i + 1);
+                operateurs.remove(i);
             } else {
                 i++;
             }
         }
     }
 
-    private double addictionSoustraction(List<Double> numbers, List<Character> operators) {
-        double result = numbers.get(0);
+    private double calculAdditionSoustraction(List<Double> nombres, List<Character> operateurs) {
+        double resltat = nombres.get(0);
 
-        for (int i = 0; i < operators.size(); i++) {
-            char op = operators.get(i);
-            double next = numbers.get(i + 1);
+        for (int i = 0; i < operateurs.size(); i++) {
+            char op = operateurs.get(i);
+            double next = nombres.get(i + 1);
 
             if (op == '+') {
-                result += next;
+                resltat += next;
             } else if (op == '-') {
-                result -= next;
+                resltat -= next;
             }
         }
 
-        return result;
+        return resltat;
     }
 }
