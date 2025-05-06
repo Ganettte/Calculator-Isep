@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Calculator {
-    public double evaluerExrepessionMath(String expression) {
+    public double evaluateMathExpression(String expression) {
         if (expression == null || expression.isBlank()) {
             System.out.println("Pas d'expression saisie");
             return 0;

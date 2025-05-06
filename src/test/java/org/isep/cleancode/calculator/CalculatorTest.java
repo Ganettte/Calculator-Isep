@@ -16,7 +16,7 @@ class CalculatorTest {
     void basicPositiveInteger(String expression, double expectedValue) {
         Calculator calculator = new Calculator();
 
-        assertEquals(expectedValue, calculator.evaluerExrepessionMath(expression));
+        assertEquals(expectedValue, calculator.evaluateMathExpression(expression));
     }
 
     @ParameterizedTest(name = "{index} => input={0}, expected={1}")
@@ -28,7 +28,7 @@ class CalculatorTest {
     void basicFloatingPointNumber(String expression, double expectedValue) {
         Calculator calculator = new Calculator();
 
-        assertEquals(expectedValue, calculator.evaluerExrepessionMath(expression));
+        assertEquals(expectedValue, calculator.evaluateMathExpression(expression));
     }
 
     @ParameterizedTest(name = "{index} => input={0}, expected={1}")
@@ -42,7 +42,7 @@ class CalculatorTest {
     void basicAddition(String expression, double expectedValue) {
         Calculator calculator = new Calculator();
 
-        assertEquals(expectedValue, calculator.evaluerExrepessionMath(expression));
+        assertEquals(expectedValue, calculator.evaluateMathExpression(expression));
     }
 
     @ParameterizedTest(name = "{index} => input={0}, expected={1}")
@@ -56,7 +56,7 @@ class CalculatorTest {
     void multipleAdditions(String expression, double expectedValue) {
         Calculator calculator = new Calculator();
 
-        assertEquals(expectedValue, calculator.evaluerExrepessionMath(expression));
+        assertEquals(expectedValue, calculator.evaluateMathExpression(expression));
     }
 
     @ParameterizedTest(name = "{index} => input={0}, expected={1}")
@@ -70,7 +70,7 @@ class CalculatorTest {
     void subtractions(String expression, double expectedValue) {
         Calculator calculator = new Calculator();
 
-        assertEquals(expectedValue, calculator.evaluerExrepessionMath(expression));
+        assertEquals(expectedValue, calculator.evaluateMathExpression(expression));
     }
 
     @ParameterizedTest(name = "{index} => input={0}, expected={1}")
@@ -85,7 +85,7 @@ class CalculatorTest {
     void multiplications(String expression, double expectedValue) {
         Calculator calculator = new Calculator();
 
-        assertEquals(expectedValue, calculator.evaluerExrepessionMath(expression));
+        assertEquals(expectedValue, calculator.evaluateMathExpression(expression));
     }
 
     @ParameterizedTest(name = "{index} => input={0}, expected={1}")
@@ -98,19 +98,19 @@ class CalculatorTest {
     void multipleOperations(String expression, double expectedValue) {
         Calculator calculator = new Calculator();
 
-        assertEquals(expectedValue, calculator.evaluerExrepessionMath(expression));
+        assertEquals(expectedValue, calculator.evaluateMathExpression(expression));
     }
 
-//    @ParameterizedTest(name = "{index} => input={0}, expected={1}")
-//    @CsvSource({
-//            "'-15', -15",
-//            "'-1', -1"
-//    })
-//    void basicNegativeInteger(String expression, double expectedValue) {
-//        Calculator calculator = new Calculator();
-//
-//        assertEquals(expectedValue, calculator.evaluateMathExpression(expression));
-//    }
+    @ParameterizedTest(name = "{index} => input={0}, expected={1}")
+    @CsvSource({
+            "'-15', -15",
+            "'-1', -1"
+    })
+    void basicNegativeInteger(String expression, double expectedValue) {
+        Calculator calculator = new Calculator();
+
+        assertEquals(expectedValue, calculator.evaluateMathExpression(expression));
+    }
 
 //    @ParameterizedTest(name = "{index} => input={0}, expected={1}")
 //    @CsvSource({
